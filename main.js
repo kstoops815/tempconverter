@@ -9,10 +9,18 @@ var convertedTypeOfTemp;
 
 
 button.addEventListener("click", determineConverter);
+button.addEventListener("keydown", enterButton);
+
+function enterButton() {
+	if(event.which===13) {
+	determineConverter;
+	}
+}
 
 
 
-function determineConverter () {
+
+function determineConverter() {
 	var inputTemp = document.getElementById("inputTemp").value;
 
 	if(document.getElementById("far").checked){
@@ -23,7 +31,7 @@ function determineConverter () {
 			toFahrenheit(inputTemp);
 			typeOfTemp = document.getElementById("celsius").value;
 			convertedTypeOfTemp = document.getElementById("far").value;
-	}	else {
+	} else {
 			alert("You must select a temperature type.");
 	}
 
@@ -56,10 +64,3 @@ function colorAssignment (inputTemp, outputTemp){
 	
 	document.getElementById("tempStatement").innerHTML = "The temperature of " + inputTemp + "&deg " + typeOfTemp + " is equal to <span class=" + color + "> " +outputTemp + "&deg " + convertedTypeOfTemp + "</span>!";
 }
-
-// if(outputTemp>90 && document.getElementById("far").checked || outputTemp>32 && document.getElementById("celsius").checked){
-// 		color = "hot";
-// 	} else if (outputTemp<32 && document.getElementById("far").checked || outputTemp<32 && document.getElementById("celsius").checked){
-// 		color = "cold";
-// 	} else if (outputTemp<90 && outputTemp>32 && document.getElementById("far").checked || outputTemp<32 && outputTemp>0 && document.getElementById("celsius").checked){
-// 		color = "comfy";
